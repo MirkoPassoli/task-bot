@@ -894,7 +894,9 @@ function initTg() {
 		let da_start = activity.getDataInizio();
 		let da_end = activity.getDataFine();
 		let date_start = da_start.getDate().toString() + "/" + (da_start.getMonth() + 1) + "/" + da_start.getFullYear() + " " + da_start.getHours() + ":" + da_start.getMinutes();
-		let date_end = da_end.getDate().toString() + "/" + (da_end.getMonth() + 1) + "/" + da_end.getFullYear() + " " + da_end.getHours() + ":" + da_end.getMinutes();
+		
+		let min = da_end.getMinutes();
+		let date_end = da_end.getDate().toString() + "/" + (da_end.getMonth() + 1) + "/" + da_end.getFullYear() + " " + da_end.getHours() + ":" + min > 9 ? min : "0".concat(min);
 
 		let msg = GetLocalString(chatId, 'confirm_create_activity') + '\n\n' +
 			GetLocalString(chatId, 'user') + ': ' + (from_username ? from_username : activity.idutente) + '\n' +
